@@ -73,22 +73,37 @@
 <!-- JS for realtime input validation -->
 <!-- Form submits if input is valid -->
 <script>
-    function validate(form){
-        let isValid = true;
+    // rebuilding validate from scratch
+    function form_validate(form){
+        let isValid = true;    // change to true when finished testing
 
-        let emailPattern = /^[a-z]{2,4}[0-9]{0,3}@[a-z]+\.[a-z]{2,4}$/i;
+        // email validation
+        let emailPattern = /^[a-z]{2,4}[0-9]{0,3}@[a-z]+\.[a-z]{2,4}$/i;  // UCID email format
         let emailRegex = new RegExp(emailPattern);
-        let emailInput = form.email.value.trim();
-
+        let emailInput =    form.email.value.trim();
         console.log(emailInput, "is valid ", emailRegex.test(emailInput));
+        if(emailRegex.test(emailInput)){
+            document.getElementById("vEmail").innerText = "";
+        }
+        else{
+            document.getElementById("vEmail").innerText = "Invalid Email Address";
+            isValid = false;
+        }
+        // username validation
+        let usernamePattern = /^[a-z]{4,20}$/i;
+        let usernameRegex = new RegExp(usernamePattern);
+        let usernameInput = form.username.value.trim();
+        console.log(usernameInput, " is valid ", usernameRegex.test(usernameInput));
         if(usernameRegex.test(usernameInput)){
+            document.getElementById("vUsername").innerText = "";
+        }
+        else{
             document.getElementById("vUsername").innerText = "Invalid Username: must only contain letters and be between 4-20 characters.";
             isValid = false;
         }
-
+        // password validation
         let password = form.password.value.trim();
         let confirm = form.confirm.value.trim();
-
         if(password !== confirm){
             console.log("Passwords don't match!");
             document.getElementById("vConfirm").innerText = "Passwords don't match";
@@ -99,13 +114,13 @@
         }
         if(password.length < 6){
             console.log("Password is too short, must be 6+");
-            document.getElementById("vPassword").innerText = "Password is too short, must be 6+";
+            document.getElementById("vPassword").innerText = "Password is too short, must be 6+ characters";
             isValid = false;
         }
         else{
             document.getElementById("vPassword").innerText = "";
-        }
-        return isValid;
+        }        
+        return isValid;  // false prevents form from submitting
     }
 </script>
 
@@ -114,7 +129,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <html>
-    <form method="POST" onsubmit="return validate(this);"> 
+    <form method="POST" onsubmit="return form_validate(this);"> 
         <label>Email</label>
         <input type="text" name="email" required/>
         <span id="vEmail"></span>
