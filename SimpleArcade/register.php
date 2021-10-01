@@ -1,7 +1,6 @@
 <?php
-// when nav is created -> remove myfunctions
-require(__DIR__ . "/../SimpleArcade/lib/myFunctions.php");
-
+require("./header.php");
+require(__DIR__ . "/../SimpleArcade/lib/connect.php");
 if (isset($_REQUEST['email'])) {
     $email = $_REQUEST['email'];
     $username = $_REQUEST['username'];
@@ -22,6 +21,7 @@ if (isset($_REQUEST['email'])) {
         echo "Passwords don't match....";
         exit();
     }
+    //TODO: add regex for emails to match school emails
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email....";
         exit();
@@ -44,7 +44,18 @@ if (isset($_REQUEST['email'])) {
         exit();
     }
 
-    // TODO: Prepare input variables for database queries
+    $email = mysqli_real_escape_string($conn, $email);
+    $hash = password_hash($password, PASSWORD_BCRYPT);
+    $password = mysqli_real_escape_string($conn, $password);
+
+    $sql = "INSERT INTO users (email, username, password, rawPassword) VALUES ('$email', '$username', '$hash','$password')";
+    $retVal = mysqli_query($conn, $sql);
+    if ($retVal) {
+        echo '<span style="color:green;">Welcome to The Club</span>';
+    } else {
+        echo '<span style="color:red;">Something did not work out:  ' . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 }
 ?>
 <html>
@@ -56,7 +67,7 @@ if (isset($_REQUEST['email'])) {
 
 <body>
     <div>
-        <form method="POST" onsubmit="validate(this);">
+        <form method="POST" onsubmit="return validate(this);">
             <table>
                 <tr>
                     <th>Register Account</th>
@@ -66,7 +77,7 @@ if (isset($_REQUEST['email'])) {
                         <label>Email</label>
                     </td>
                     <td>
-                        <input type="text" name="email" required />
+                        <input type="text" name="email" onkeyup="checkEmail(this.value)" required />
                         <span id="vEmail"></span>
                     </td>
                 </tr>
@@ -75,7 +86,7 @@ if (isset($_REQUEST['email'])) {
                         <label>Username</label>
                     </td>
                     <td>
-                        <input type="text" name="username" required />
+                        <input type="text" name="username" onkeyup="checkUsername(this.value)" required />
                         <span id="vUsername"></span>
                     </td>
                 </tr>

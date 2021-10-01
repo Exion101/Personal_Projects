@@ -39,14 +39,7 @@ function validate(form){
      */
     let password = form.password.value.trim();
     let confirm_password = form.confirm.value.trim();
-    if(password !== confirm_password){
-        console.log("Passwords don't match!");
-        document.getElementById("vConfirm").innerText="Passwords don't match!";
-        isValid = false;
-    }
-    else{
-        document.getElementsById("vConfirm").innerText="Passwords don't match!";
-    }
+    
     if(password.length <  6){
         console.log("Password is too short, must be 6+ characters");
         document.getElementsById("vPassword").innerText = "Password is too short, must be 6+ characters";
@@ -55,5 +48,48 @@ function validate(form){
     else{
         document.getElementsById("vPassword").innerText = "";
     }
+    if(password !== confirm_password){
+        console.log("Passwords don't match!");
+        document.getElementById("vConfirm").innerText="Passwords don't match!";
+        isValid = false;
+    }
+    else{
+        document.getElementsById("vConfirm").innerText="Passwords don't match!";
+    }
+    // FIXME: find out how to keep innertext messages onscreen and prevent submission from happening
     return isValid;
 }
+
+//TODO: fix file paths 
+function checkEmail(str) {
+    if (str.length == 0) {
+        document.getElementById("vEmail").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("vEmail").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "/ajax/checkEmail.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+
+function checkUsername(str) {
+    if (str.length == 0) {
+        document.getElementById("vUsername").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("vUsername").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "/ajax/checkUsername.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+
