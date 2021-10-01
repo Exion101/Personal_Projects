@@ -11,9 +11,7 @@ if ($_REQUEST['q']) {
     $retEmail = mysqli_query($conn, $sql);
     $retEmail = mysqli_fetch_assoc($retEmail);
 
-    if (!$retEmail) {
-        echo '<span style="color: red"> email does not Exists</span>';
-    } else {
-        echo '<span style="color: green"> emial exists</span>';
+    if ($retEmail) {
+        echo '<span style="color: red"> Email already exists.</span>';
     }
 }

@@ -62,7 +62,6 @@ if (isset($_REQUEST['email'])) {
 
 <head>
     <title>Register Account</title>
-    <script type="text/javascript" src="./js/functions.js"></script>
 </head>
 
 <body>
@@ -77,7 +76,7 @@ if (isset($_REQUEST['email'])) {
                         <label>Email</label>
                     </td>
                     <td>
-                        <input type="text" name="email" onkeyup="checkEmail(this.value)" required />
+                        <input type="text" name="email" onkeyup="checkEmail(this.value);" required />
                         <span id="vEmail"></span>
                     </td>
                 </tr>
@@ -86,7 +85,7 @@ if (isset($_REQUEST['email'])) {
                         <label>Username</label>
                     </td>
                     <td>
-                        <input type="text" name="username" onkeyup="checkUsername(this.value)" required />
+                        <input type="text" name="username" onkeyup="checkUsername(this.value);" required />
                         <span id="vUsername"></span>
                     </td>
                 </tr>
@@ -115,6 +114,9 @@ if (isset($_REQUEST['email'])) {
             </table>
         </form>
     </div>
+
+    <script type="text/javascript" src="./js/functions.js"></script>
+
 </body>
 
 </html>
