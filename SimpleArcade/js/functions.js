@@ -60,7 +60,6 @@ function validate(form){
     return isValid;
 }
 
-//TODO: fix file paths 
 function checkEmail(str) {
     if (str.length == 0) {
         document.getElementById("vEmail").innerHTML = "";
@@ -72,7 +71,7 @@ function checkEmail(str) {
                 document.getElementById("vEmail").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "/ajax/checkEmail.php?q=" + str, true);
+        xmlhttp.open("GET", "./ajax/checkEmail.php?q=" + str, true);
         xmlhttp.send();
     }
 }
@@ -88,7 +87,7 @@ function checkUsername(str) {
                 document.getElementById("vUsername").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "/ajax/checkUsername.php?q=" + str, true);
+        xmlhttp.open("GET", "./ajax/checkUsername.php?q=" + str, true);
         xmlhttp.send();
     }
 }

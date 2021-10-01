@@ -13,9 +13,7 @@ if ($_REQUEST['q']) {
     $retUser = mysqli_query($conn, $sql);
     $retUser = mysqli_fetch_assoc($retUser);
 
-    if (!$retUser) {
-        echo '<span style="color: red"> does not Exists</span>';
-    } else {
-        echo '<span style="color: green"> exists</span>';
+    if ($retUser) {
+        echo '<span style="color: red"> Username already exists.</span>';
     }
 }

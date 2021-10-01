@@ -14,7 +14,7 @@ function getConn()
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        echo "Successful Connection";
+        echo "<script> console.log('Connection Succesful');</script>";
     }
     return $conn;
 }
