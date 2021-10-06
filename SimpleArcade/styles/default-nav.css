@@ -1,0 +1,101 @@
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: fill;
+}
+.nav-wrapper ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3700b3;
+}
+.nav-wrapper ul > li {
+  float: left;
+}
+.nav-wrapper ul > li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-wrapper ul > li a:hover {
+  background-color: #bb86fc;
+}
+
+.nav-header {
+  height: 100px;
+  background-color: #7700a6;
+}
+.nav-header h1 {
+  font-family: "Press Start 2p", cursive;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 60px;
+}
+.blinking {
+  animation: blinkingText 1.7s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: #f1f0ee;
+  }
+  49% {
+    color: #f1f0ee;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #f1f0ee;
+  }
+}
+.form-container {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.form-wrapper {
+  height: 350px;
+  width: 450px;
+  padding: 25px;
+  border: solid black;
+  border-radius: 10px;
+  background-color: rgba(55, 0, 179, 0.85);
+}
+.form-wrapper h1 {
+  font-family: "Press Start 2p", cursive;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  padding-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: 0px;
+  border-radius: 10px;
+  margin: 2px;
+}
+input[type="submit"] {
+  color: white;
+  background-color: #6c349d;
+  font-size: 20px;
+}
+
+.error {
+  color: white;
+  letter-spacing: 1.5px;
+}

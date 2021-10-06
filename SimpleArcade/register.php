@@ -62,60 +62,31 @@ if (isset($_REQUEST['email'])) {
 
 <head>
     <title>Register Account</title>
+    <script type="text/javascript" src="./js/functions.js"></script>
 </head>
 
 <body>
-    <div>
-        <form method="POST" onsubmit="return validate(this);">
-            <table>
-                <tr>
-                    <th>Register Account</th>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Email</label>
-                    </td>
-                    <td>
-                        <input type="text" name="email" onkeyup="checkEmail(this.value);" required />
-                        <span id="vEmail"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Username</label>
-                    </td>
-                    <td>
-                        <input type="text" name="username" onkeyup="checkUsername(this.value);" required />
-                        <span id="vUsername"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Password</label>
-                    </td>
-                    <td>
-                        <input type="password" name="password" required />
-                        <span id="vPassword"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Confirm Password</label>
-                    </td>
-                    <td>
-                        <input type="password" name="confirm" required />
-                        <span id="vConfirm"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Register" /></td>
-                </tr>
-            </table>
-        </form>
-    </div>
+    <div class="form-container">
+        <div class="form-wrapper">
+            <form method="POST" onsubmit="return validate(this);">
+                <h1>Register</h1>
+                <input type="text" name="email" placeholder="Email" onkeyup="checkEmail(this.value);" required />
+                <br><span id="vEmail" class="error"></span><br>
 
-    <script type="text/javascript" src="./js/functions.js"></script>
+                <input type="text" name="username" placeholder="Username" onkeyup="checkUsername(this.value);" required />
+                <br><span id="vUsername" class="error"></span><br>
+
+                <input type="password" placeholder="Password" name="password" required />
+                <br><span id="vPassword" class="error"></span><br>
+
+                <input type="password" placeholder="Confirm Password" name="confirm" required />
+                <br><span id="vConfirm" class="error"></span><br>
+
+                <input type="submit" value="Send" />
+
+            </form>
+        </div>
+    </div>
 
 </body>
 
