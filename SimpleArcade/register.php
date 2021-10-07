@@ -51,9 +51,10 @@ if (isset($_REQUEST['email'])) {
     $sql = "INSERT INTO users (email, username, password, rawPassword) VALUES ('$email', '$username', '$hash','$password')";
     $retVal = mysqli_query($conn, $sql);
     if ($retVal) {
-        echo '<span style="color:green;">Welcome to The Club</span>';
+        echo '<span class="form-container"><h1 style="color:white">Welcome to The Club</h1></span>';
     } else {
-        echo '<span style="color:red;">Something did not work out:  ' . mysqli_error($conn);
+        //echo '<span class="form-container"><h1 style="color:white">Something did not work out:  ' . mysqli_error($conn) . '</h1></span>';
+        echo '<span class="form-container"><h1 style="color:white">Something did not work out. Try Again.</h1></span>';
     }
     mysqli_close($conn);
 }
@@ -82,7 +83,7 @@ if (isset($_REQUEST['email'])) {
                 <input type="password" placeholder="Confirm Password" name="confirm" required />
                 <br><span id="vConfirm" class="error"></span><br>
 
-                <input type="submit" value="Send" />
+                <input type="submit" value="Submit" />
 
             </form>
         </div>
