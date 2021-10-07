@@ -24,3 +24,8 @@ function safe($var)
 {
     echo htmlentities($var, ENT_QUOTES, "utf-8");
 }
+
+function is_logged_in()
+{
+    return isset($_SESSION["user"]) && isset($_SESSION["user"]["id"]);
+}

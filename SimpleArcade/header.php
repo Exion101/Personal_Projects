@@ -1,7 +1,7 @@
 <?php
 session_set_cookie_params([
     'lifetime' => 60 * 60,
-    'path' => '/SimpleArcade',
+    'path' => 'Projects/SimpleArcade',
     'domain' => $_SERVER['HTTP_HOST'],
     'secure' => true,
     'httponly' => true,
@@ -29,10 +29,14 @@ require(__DIR__ . "/../SimpleArcade/lib/myFunctions.php");
     </div>
     <div class="nav-wrapper">
         <ul>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Logout</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Logout</a></li>
+            <?php if (!is_logged_in()) : ?>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="register.php">Register</a></li>
+            <?php endif; ?>
+            <?php if (is_logged_in()) : ?>
+                <li><a href="#">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            <?php endif; ?>
         </ul>
     </div>
 </body>
