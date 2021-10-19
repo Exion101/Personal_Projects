@@ -29,3 +29,34 @@ function is_logged_in()
 {
     return isset($_SESSION["user"]) && isset($_SESSION["user"]["id"]);
 }
+// get account details
+function get_email()
+{
+    if (is_logged_in()) {
+        return $_SESSION["user"]["email"];
+    }
+    return "";
+}
+
+function get_username()
+{
+    if (is_logged_in()) {
+        return $_SESSION["user"]["username"];
+    }
+    return "";
+}
+function get_role()
+{
+    if (is_logged_in()) {
+        return $_SESSION["user"]["role"];
+    }
+    return "No role found";
+}
+
+function get_user_id()
+{
+    if (is_logged_in()) {
+        return $_SESSION["user"]["id"];
+    }
+    return "";
+}
