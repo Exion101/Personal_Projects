@@ -48,45 +48,39 @@ if (isset($_REQUEST['email'])) {
     $hash = password_hash($password, PASSWORD_BCRYPT);
     $password = mysqli_real_escape_string($conn, $password);
 
-    $sql = "INSERT INTO users (email, username, password, rawPassword) VALUES ('$email', '$username', '$hash','$password')";
+    $sql = "INSERT INTO users (email, username, role, password, rawPassword) VALUES ('$email', '$username','player', '$hash','$password')";
     $retVal = mysqli_query($conn, $sql);
     if ($retVal) {
-        echo '<span class="form-container"><h1 style="color:white">Welcome to The Club</h1></span>';
+        echo '<div class="msg-container"><div class="msg-content">Welcome to The Club</div></div>';
+        header('Refresh: 3; url=login.php');
     } else {
         //echo '<span class="form-container"><h1 style="color:white">Something did not work out:  ' . mysqli_error($conn) . '</h1></span>';
-        echo '<span class="form-container"><h1 style="color:white">Something did not work out. Try Again.</h1></span>';
+        echo '<div class="msg-container"><div class="msg-content">Something did not work out. Try Again.</div></div>';
     }
     mysqli_close($conn);
 }
 ?>
 <html>
 
-<head>
-    <title>Register Account</title>
-    <script type="text/javascript" src="./js/functions.js"></script>
-</head>
-
 <body>
-    <div class="form-container">
-        <div class="form-wrapper">
-            <form method="POST" onsubmit="return validate(this);">
-                <h1>Register</h1>
-                <input type="text" name="email" placeholder="Email" onkeyup="checkEmail(this.value);" required />
-                <br><span id="vEmail" class="error"></span><br>
+    <div class="form-container" style="height: 375px;">
+        <form method="POST" onsubmit="return validate(this);">
+            <h1>Register</h1>
+            <input type="text" name="email" placeholder="Email" onkeyup="checkEmail(this.value);" required />
+            <br><span id="vEmail" class="error"></span>
 
-                <input type="text" name="username" placeholder="Username" onkeyup="checkUsername(this.value);" required />
-                <br><span id="vUsername" class="error"></span><br>
+            <input type="text" name="username" placeholder="Username" onkeyup="checkUsername(this.value);" required />
+            <br><span id="vUsername" class="error"></span>
 
-                <input type="password" placeholder="Password" name="password" required />
-                <br><span id="vPassword" class="error"></span><br>
+            <input type="password" placeholder="Password" name="password" required />
+            <br><span id="vPassword" class="error"></span>
 
-                <input type="password" placeholder="Confirm Password" name="confirm" required />
-                <br><span id="vConfirm" class="error"></span><br>
+            <input type="password" placeholder="Confirm Password" name="confirm" required />
+            <br><span id="vConfirm" class="error"></span>
 
-                <input type="submit" value="Submit" />
+            <br><input type="submit" value="Submit" />
 
-            </form>
-        </div>
+        </form>
     </div>
 
 </body>

@@ -6,5 +6,5 @@ session_destroy();
 
 require("header.php");
 setcookie("PHPSESSID", "", time() - 3600);
-echo '<span class="form-container" style="color:white"><span class="form-wrapper"><h1 style="padding-top:120px;">See you soon!</h1></span></span>';
+echo '<div class="msg-container"><div class="msg-content">See you soon!</div></div>';
 die(header("Refresh:3; url=login.php"));

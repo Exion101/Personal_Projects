@@ -2,6 +2,8 @@
 require("header.php");
 require(__DIR__ . "/lib/connect.php");
 
+$verify_msg = NULL;
+
 if (isset($_REQUEST["email"])) {
     // $email can recieve either username or email
     $email = $_REQUEST["email"];
@@ -11,7 +13,7 @@ if (isset($_REQUEST["email"])) {
         exit();
     }
 
-    $sql = "SELECT id, email, username, password from users where email='$email' OR username='$email' LIMIT 1";
+    $sql = "SELECT id, email, username, role, password from users where email='$email' OR username='$email' LIMIT 1";
     $retVal = mysqli_query($conn, $sql);
 
 
@@ -21,46 +23,47 @@ if (isset($_REQUEST["email"])) {
             if (password_verify($password, $result["password"])) {
                 unset($result["password"]);
                 $_SESSION["user"] = $result;
-                echo '<span class="form-container" style="color:white"><span class="form-wrapper"><h1 style="padding-top:120px;">Welcome to the Club!</h1></span></span>';
+
+                $verify_msg = "Welcome to the Club";
+
+                echo '<div class="msg-container"><div class="msg-content">' . $verify_msg . '</div></div>';
                 die(header("Refresh:2; url=profile.php"));
             } else {
+                $verify_msg = "Incorrect Password";
+
+                echo '<div class="msg-container"><div class="msg-content">' . $verify_msg . '</div></div>';
                 header("Refresh:2; url=login.php");
-                echo '<span class="form-container" style="color:white"><span class="form-wrapper"><h1 style="padding-top:120px;">Incorrect Password.</h1></span></span>';
                 exit();
             }
         } else {
+            $verify_msg = "Account does not Exist";
+
+            echo '<div class="msg-container"><div class="msg-content">' . $verify_msg . '</div></div>';
             header("Refresh:2; url=login.php");
-            echo '<span class="form-container" style="color:white"><span class="form-wrapper"><h1 style="padding-top:120px;">Account Does Not Exist.</h1></span></span>';
             exit();
         }
     } else {
+        $verify_msg = "Something is wrong here";
+
+        echo '<div class="msg-container"><div class="msg-content">' . $verify_msg . '</div></div>';
         header("Refresh:2; url=login.php");
-        echo '<span class="form-container" style="color:white"><span class="form-wrapper"><h1 style="padding-top:120px;">Something didn\'t work out' . mysqli_error($conn) . ',/h1></span></span>';
         exit();
     }
     mysqli_close($conn);
 }
 ?>
-
+<!-- TODO: add error message variable for friendly error messages -->
 <html>
-
-<head>
-    <title>Simple Arcade - Login</title>
-</head>
 
 <body>
     <div class="form-container">
-        <div class="form-wrapper">
-            <form method="POST">
-                <h1>Login</h1>
-                <input type="text" name="email" placeholder="Username or Email" required />
-                <input type="password" name="password" placeholder="Password" required />
-                <input type="submit" value="Submit" />
-                <span id="error_message"></span>
-            </form>
-        </div>
+        <form method="POST">
+            <h1>Login</h1>
+            <input type="text" name="email" placeholder="Username or Email" required /><br>
+            <input type="password" name="password" placeholder="Password" required /><br>
+            <input type="submit" value="Submit" />
+        </form>
     </div>
-
 </body>
 
 </html>
