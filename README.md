@@ -9,6 +9,7 @@
   <li>PHP</li>
   <li>HTML/CSS</li>
   <li>JS</li>
+  <li>SQL</li>
 </ul>
 
 <h1>Projects</h1>
