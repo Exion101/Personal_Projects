@@ -14,7 +14,7 @@
 <h1>Projects</h1>
 <ul>
   <li>Simple Arcade</li>
-  <li>Lexical Analyzer</li>
+  <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/SimpleArcade">Lexical Analyzer</a></li>
 </ul>
 <h1>Scripts</h1>
 <li>Simple interest and Compound interest Calculator</li>
