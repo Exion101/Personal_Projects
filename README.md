@@ -17,3 +17,4 @@
   <li>Lexical Analyzer</li>
 </ul>
 <h1>Scripts</h1>
+<li>Simple interest and Compound interest Calculator</li>
