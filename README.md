@@ -9,4 +9,11 @@
   <li>PHP</li>
   <li>HTML/CSS</li>
   <li>JS</li>
+</ul>
+
+<h1>Projects</h1>
 <ul>
+  <li>Simple Arcade</li>
+  <li>Lexical Analyzer</li>
+</ul>
+<h1>Scripts</h1>
