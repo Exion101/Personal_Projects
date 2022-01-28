@@ -13,7 +13,7 @@
 
 <h1>Projects</h1>
 <ul>
-  <li>Simple Arcade</li>
+  <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/Lexical%20Analyzer">Simple Arcade</a></li>
   <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/SimpleArcade">Lexical Analyzer</a></li>
 </ul>
 <h1>Scripts</h1>
