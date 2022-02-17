@@ -16,32 +16,26 @@ def getString():
         email = input("Enter String: ")
     elif choice.lower() == 'n':
         print("Program Ended")
+        exit()
     return email
 
-def checkEmptyTrapState(str):
-    if len(str) == 0:
-        print("{}".format(email))
-#Start State
-def q1(str):
-    checkEmptyTrapState(str)
-    print("Q1 : {}".format(str[0]))
-    if str[0] in gamma:
-        q2(str[1:])
-    else:
-        try:
-            print("{} in Trap State".format(str[0]))
-        except IndexError:
-            pass
-        return 
+def trapState(str):
+    for letter in str:
+        print("Trap State: {}".format(letter))
 
+def q1(str):
+    if str[0] in gamma:
+        print("Q1: Start State")
+        q2(str)
+    else:
+        trapState(str)
 
 def q2(str):
-    checkEmptyTrapState(str)
-    print("Q2 : {}".format(str[0]))
+    print("Q2: {}".format(str[0]))
     if str[0] in gamma:
         q2(str[1:])
     elif str[0] in delta:
-        q1(str[1:])
+        q1(str)
     elif str[0] in phi:
         q3(str[1:])
     else:
@@ -52,8 +46,6 @@ def q2(str):
         return 
         
 def q3(str):
-    checkEmptyTrapState(str)
-    print("Q3 : {}".format(str[0]))
     if str[0] in gamma:
         q4(str[1:])
     else:
@@ -63,7 +55,6 @@ def q3(str):
             pass
         return 
 def q4(str):
-    checkEmptyTrapState(str)
     print("Q4 : {}".format(str[0]))
     if str[0] in gamma:
         q4(str[1:])
@@ -78,8 +69,6 @@ def q4(str):
         return
 
 def q5(str):
-    checkEmptyTrapState(str)
-    print("Q5 : {}".format(str[0]))
     if str[0] == 'o':
         q6(str[1:])
     elif str[0] in gamma:
@@ -92,8 +81,6 @@ def q5(str):
         return
 
 def q6(str):
-    checkEmptyTrapState(str)
-    print("Q6 : {}".format(str[0]))
     if str[0] in delta:
         q5(str[1:])
     elif str[0] == 'r':
@@ -108,7 +95,6 @@ def q6(str):
         return 
 
 def q7(str):
-    checkEmptyTrapState(str)
     print("Q7 : {}".format(str[0]))
     if str[0] in delta:
         q5(str[1:])
