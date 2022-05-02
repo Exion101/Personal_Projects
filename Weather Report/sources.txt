@@ -1,0 +1,5 @@
+https://forecast.weather.gov/MapClick.php?CityName=Edgewater&state=NJ&site=OKX&textField1=40.8214&textField2=-73.9784&e=1#.Yl9443XMKV4
+https://forecast.weather.gov/MapClick.php?CityName=Hoboken&state=NJ&site=OKX&textField1=40.7426&textField2=-74.0288&e=0#.Yl96lHXMJhE
+https://forecast.weather.gov/MapClick.php?CityName=Jersey+City&state=NJ&site=OKX&textField1=40.7113&textField2=-74.065#.Yl97KHXMJhE
+https://forecast.weather.gov/MapClick.php?CityName=Trenton&state=NJ&site=PHI&textField1=40.2234&textField2=-74.7642&e=1#.Yl97anXMJhE
+https://forecast.weather.gov/MapClick.php?CityName=West+New+York&state=NJ&site=OKX&textField1=40.7859&textField2=-74.0098&e=0#.Yl97l3XMJhE
