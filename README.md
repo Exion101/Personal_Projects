@@ -10,6 +10,8 @@
   <li>HTML/CSS</li>
   <li>JS</li>
   <li>SQL</li>
+  <li>Python</li>
+  <li>Bash</li>
 </ul>
 
 <h1>Projects</h1>
