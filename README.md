@@ -16,6 +16,7 @@
 <ul>
   <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/Lexical%20Analyzer">Simple Arcade</a></li>
   <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/SimpleArcade">Lexical Analyzer</a></li>
+  <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/SimpleArcade">Weather Report Web Scraper</a></li>
 </ul>
 <h1>Scripts</h1>
 <li><a href="https://github.com/jescamilla1/Personal_Projects/tree/main/Scripts/Simple%20and%20Compound%20Interest%20Calculator">Simple interest and Compound interest Calculator</a></li>
