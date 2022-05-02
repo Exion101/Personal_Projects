@@ -1,6 +1,6 @@
 <h1>Personal Projects</h1>
 <p>This is a collections of projects and scripts that I have completed or am currently working on!</p>
-<p><b>Currently working on: </b> Simple Arcade</p>
+<p><b>Currently working on: </b> Weather Report Web Scraper</p>
 
 
 <h1>Languages Used</h1>
